@@ -42,3 +42,6 @@ application.yml
 
 ### apple ###
 .DS_Store
+
+### code & exe ###
+submissions/*
