@@ -4,21 +4,19 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
-public class CodeSubmission {
+public class Problem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String language;
+    private String name;
 
-    private String filename;
-
-    @Column(length = 10000)
-    private String code;
-
-    private Long problemId;
+    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TestCase> testCases;
 
 }
